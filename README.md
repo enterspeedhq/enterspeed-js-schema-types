@@ -1,6 +1,4 @@
 # Intro
-JavaScript schemas are currently in preview.
-
 With JavaScript schemas, you can build your schemas in a standard language most developers are already familiar with. This means that you have all the power and flexibility from JavaScript available when you are creating your schemas.
 
 This types package goal is to improve developers experience while working with Enterspeed schemas, by providing types to be used by intellisense.
