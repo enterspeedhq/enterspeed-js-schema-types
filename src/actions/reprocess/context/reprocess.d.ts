@@ -39,5 +39,5 @@ export interface IReprocessSchemaActionsBuilder {
    * context.reprocess('mySchemaAlias').filter("type eq 'contentPage'")
    * ```
    */
-  filter(): IReprocessByFilterBuilder;
+  filter(filter: string): IReprocessByFilterBuilder;
 }
