@@ -4,7 +4,7 @@ export interface ISourceEntity {
   originId: string;
   originParentId?: string;
   url?: string;
-  redirects?: string[];
+  redirects: string[];
   properties: Record<string, any | undefined>;
   updatedAt?: string;
 }
