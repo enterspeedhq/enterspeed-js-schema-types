@@ -1,6 +1,4 @@
 # Intro
-JavaScript schemas are currently in preview.
-
 With JavaScript schemas, you can build your schemas in a standard language most developers are already familiar with. This means that you have all the power and flexibility from JavaScript available when you are creating your schemas.
 
 This types package goal is to improve developers experience while working with Enterspeed schemas, by providing types to be used by intellisense.
@@ -11,7 +9,7 @@ https://docs.enterspeed.com/reference/js/Intro
 
 1. Install package
 ```
-npm i @elglogins/enterspeed-contrib-js-schemas
+npm i @enterspeed/js-schemas-types
 ```
 
 2. Configure `jsconfig.json`
@@ -25,7 +23,7 @@ npm i @elglogins/enterspeed-contrib-js-schemas
         "noEmit": true,
         "target": "ESNext",
         "types": [
-            "@elglogins/enterspeed-contrib-js-schemas"
+            "@enterspeed/js-schemas-types"
         ]
     },
 }
@@ -54,6 +52,14 @@ export default {
 }
 ```
 
+
+## New release
+1. Update version number in the `package.json` file
+2. Login to npm by running: `npm login`
+3. Publish the package by running: `npm run publish`
+   1. You might get an error 403 but the package update should be complated
+
+
 ## Bundling guide
 ```
 npm run publish-locally
@@ -61,7 +67,7 @@ npm run publish-locally
 
 ```
 local-package-publisher -p
-npm link @elglogins/enterspeed-contrib-js-schemas
+npm link @enterspeed/js-schemas-types
 npm publish --access public
 ```
 
