@@ -9,7 +9,7 @@ https://docs.enterspeed.com/reference/js/Intro
 
 1. Install package
 ```
-npm i @enterspeed/js-schemas-types
+npm i @enterspeed/js-schema-types
 ```
 
 2. Configure `jsconfig.json`
