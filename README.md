@@ -23,7 +23,7 @@ npm i @enterspeed/js-schema-types
         "noEmit": true,
         "target": "ESNext",
         "types": [
-            "@enterspeed/js-schemas-types"
+            "@enterspeed/js-schema-types"
         ]
     },
 }

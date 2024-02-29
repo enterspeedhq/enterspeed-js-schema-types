@@ -12,7 +12,7 @@ npm run publish-locally
 
 ```
 local-package-publisher -p
-npm link @enterspeed/js-schemas-types
+npm link @enterspeed/js-schema-types
 npm publish --access public
 ```
 
