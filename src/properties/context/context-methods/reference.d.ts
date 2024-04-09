@@ -7,7 +7,7 @@ import {
 
 export interface IPropertiesReferenceBuilder {
   /**
-   * Using the filter function lets you do a dynamic search for source entities you wnat to make references to
+   * Using the filter function lets you do a dynamic search for source entities you want to make references to
    * @param filter Your filtering criteria
    * @example Example of usage
    * ```js

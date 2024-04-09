@@ -29,5 +29,14 @@ export interface IRoutesSchemaContext {
    */
   handle(handle: Nullable<string>): IRouteByHandleBuilder;
 
+/**
+   * Using the lookup function lets you do a dynamic search for source entities you want to return
+   * @see {@link https://docs.enterspeed.com/reference/js/routes#lookup} documentation for route lookup
+   * @param filter Your filtering criteria
+   * @example Example of usage
+   * ```js
+   * const newsTeasers = context.lookup("type eq 'newsArticle'").toPromise();
+   * ```
+   */
   lookup(filter: string): ILookupBuilder;
 }
