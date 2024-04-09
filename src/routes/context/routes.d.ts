@@ -35,7 +35,7 @@ export interface IRoutesSchemaContext {
    * @param filter Your filtering criteria
    * @example Example of usage
    * ```js
-   * const newsTeasers = context.lookup("type eq 'newsArticle'").toPromise();
+   * const newsTeasers = await context.lookup("type eq 'newsArticle'").toPromise();
    * ```
    */
   lookup(filter: string): ILookupBuilder;
