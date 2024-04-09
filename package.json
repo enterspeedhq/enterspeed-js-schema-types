@@ -5,13 +5,16 @@
   "main": "src/index.ts",
   "watch": {
     "publish-locally": {
-      "patterns": ["src"],
+      "patterns": [
+        "src"
+      ],
       "extensions": "ts",
       "quiet": false
     }
   },
   "scripts": {
     "publish": "dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts && npm publish --access public",
+    "publish-preview": "dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts && npm publish --access public --tag beta",
     "publish-locally": "dts-bundle-generator --config dts-bundle-generator.config.json src/index.d.ts && local-package-publisher -p",
     "watch": "npm-watch publish-locally"
   },
