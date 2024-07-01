@@ -25,7 +25,7 @@ npm i @enterspeed/js-schema-types
         "types": [
             "@enterspeed/js-schema-types"
         ]
-    },
+    }
 }
 ```
 
