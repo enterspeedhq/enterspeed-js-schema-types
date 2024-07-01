@@ -4,10 +4,10 @@ import { ISchema } from "../../schemas/schema";
 
 export namespace Schemas {
 
-    export class Full extends BaseFullSchema<Record<string, any>, Record<string, unknown>> {
+    export class Full<TSourceEntityProperties = Record<string, any | undefined>> extends BaseFullSchema<Record<string, any>, Record<string, unknown>, TSourceEntityProperties> {
     }
 
-    export class Partial implements ISchema {
+    export class Partial<TInput = any> implements ISchema {
         /**
          * The `properties` method is where you define the output that goes into the view you fetch from the delivery API.
          * @param input
@@ -17,7 +17,7 @@ export namespace Schemas {
          * {@label SCHEMA_FUNCTION}
          */
         properties: (
-          input: any,
+          input: TInput,
           context: IPropertiesContext
         ) => Promise<Record<string, any>> | Record<string, any>;
       }

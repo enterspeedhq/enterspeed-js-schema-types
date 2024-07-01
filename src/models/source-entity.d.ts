@@ -1,10 +1,10 @@
-export interface ISourceEntity {
+export interface ISourceEntity<TProperties> {
   id: string;
   type: string;
   originId: string;
   originParentId?: string;
   url?: string;
   redirects?: string[];
-  properties: Record<string, any | undefined>;
+  properties: TProperties;
   updatedAt?: string;
 }

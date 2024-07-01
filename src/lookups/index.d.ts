@@ -8,6 +8,6 @@ export interface ILookupBuilder {
   
     orderBy(orderBy: IOrderBy): ILookupBuilder;
   
-    toPromise(): Promise<ISourceEntity[]>;
+    toPromise(): Promise<ISourceEntity<Record<string, any | undefined>>[]>;
   }
   

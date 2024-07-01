@@ -1,7 +1,7 @@
 import { IPropertiesContext } from '../properties/context';
 import { ISchema } from './schema';
 
-export class PartialSchema implements ISchema {
+export class PartialSchema<TInput = any> implements ISchema {
   /**
    * The `properties` method is where you define the output that goes into the view you fetch from the delivery API.
    * @param input
@@ -11,7 +11,7 @@ export class PartialSchema implements ISchema {
    * {@label SCHEMA_FUNCTION}
    */
   properties: (
-    input: any,
+    input: TInput,
     context: IPropertiesContext
   ) => Promise<Record<string, any>> | Record<string, any>;
 }

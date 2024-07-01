@@ -4,7 +4,7 @@ import {IRouteByHandleBuilder} from "../routes";
 import {IReferenceBuilder, IReferenceByOriginIdsBuilder, IReferenceChildrenFilterBuilder, IReferenceFilterBuilder} from "../references";
 import { Nullable } from "../types";
 
-export class CollectionSchema {
+export class CollectionSchema<TSourceEntityProperties = Record<string, any | undefined>> {
     /**
      * The `triggers` method is where you define the source group and the types the schema should process.
      * @see {@link https://docs.enterspeed.com/reference/js/triggers} documentation for triggers.
@@ -20,7 +20,7 @@ export class CollectionSchema {
      * {@label SCHEMA_FUNCTION}
      */
     routes?: (
-        sourceEntity: ISourceEntity,
+        sourceEntity: ISourceEntity<TSourceEntityProperties>,
         context: IRoutesCollectionSchemaContext
     ) => void;
 
@@ -31,7 +31,7 @@ export class CollectionSchema {
      * {@label SCHEMA_FUNCTION}
      */
     items: (
-        sourceEntity: ISourceEntity,
+        sourceEntity: ISourceEntity<TSourceEntityProperties>,
         context: ICollectionItemsContext
     ) => Promise<IReferenceBuilder> | IReferenceBuilder;
 }

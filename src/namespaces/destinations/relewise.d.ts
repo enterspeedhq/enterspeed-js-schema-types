@@ -7,19 +7,19 @@ export namespace Destinations.Relewise {
 
     export namespace Schemas {
         
-        export class Product extends BaseFullSchema<Types.ProductProperties, Types.ProductDestinationOptions> {
+        export class Product<TSourceEntityProperties = Record<string, any | undefined>> extends BaseFullSchema<Types.ProductProperties, Types.ProductDestinationOptions, TSourceEntityProperties> {
         }
         
-        export class Content extends BaseFullSchema<Types.ContentProperties, Types.ContentDestinationOptions> {
+        export class Content<TSourceEntityProperties = Record<string, any | undefined>> extends BaseFullSchema<Types.ContentProperties, Types.ContentDestinationOptions, TSourceEntityProperties> {
         }
 
-        export class Brand extends BaseFullSchema<Types.BrandProperties, Types.BrandDestinationOptions> {
+        export class Brand<TSourceEntityProperties = Record<string, any | undefined>> extends BaseFullSchema<Types.BrandProperties, Types.BrandDestinationOptions, TSourceEntityProperties> {
         }
 
-        export class ProductCategory extends BaseFullSchema<Types.ProductCategoryProperties, Types.ProductCategoryDestinationOptions> {
+        export class ProductCategory<TSourceEntityProperties = Record<string, any | undefined>> extends BaseFullSchema<Types.ProductCategoryProperties, Types.ProductCategoryDestinationOptions, TSourceEntityProperties> {
         }
 
-        export class ContentCategory extends BaseFullSchema<Types.ContentCategoryProperties, Types.ContentCategoryDestinationOptions> {
+        export class ContentCategory<TSourceEntityProperties = Record<string, any | undefined>> extends BaseFullSchema<Types.ContentCategoryProperties, Types.ContentCategoryDestinationOptions, TSourceEntityProperties> {
         }
     }
 
