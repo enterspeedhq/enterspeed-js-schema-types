@@ -16,5 +16,5 @@ export interface IOrderBy
    * orderBy({ propertyName: 'properties.metaData.sortOrder', direction: 'asc' });
    * ```
    */
-  propertyName: `properties.${string}` | keyof Omit<ISourceEntity, 'properties'>;
+  propertyName: `properties.${string}` | keyof Omit<ISourceEntity<Record<string, any | undefined>>, 'properties'>;
 }

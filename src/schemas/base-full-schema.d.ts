@@ -4,7 +4,7 @@ import { ISourceEntity } from "../models/source-entity";
 import { IPropertiesContext } from "../properties/context";
 import { IActionsSchemaContext } from "../actions";
 
-export abstract class BaseFullSchema<TProperties, TDestinationOptions> {
+export abstract class BaseFullSchema<TReturnProperties, TDestinationOptions, TSourceEntityProperties> {
   /**
    * The `triggers` method is where you define the source group and the types the schema should process.
    * @see {@link https://docs.enterspeed.com/reference/js/triggers} documentation for triggers. 
@@ -20,7 +20,7 @@ export abstract class BaseFullSchema<TProperties, TDestinationOptions> {
    * {@label SCHEMA_FUNCTION}
    */
   actions?: (
-    sourceEntity: ISourceEntity,
+    sourceEntity: ISourceEntity<TSourceEntityProperties>,
     context: IActionsSchemaContext<TDestinationOptions>
   ) => void;
 
@@ -30,7 +30,7 @@ export abstract class BaseFullSchema<TProperties, TDestinationOptions> {
    * {@label SCHEMA_FUNCTION}
    */
   routes?: (
-    sourceEntity: ISourceEntity,
+    sourceEntity: ISourceEntity<TSourceEntityProperties>,
     context: IRoutesSchemaContext
   ) => void;
 
@@ -41,7 +41,7 @@ export abstract class BaseFullSchema<TProperties, TDestinationOptions> {
    * {@label SCHEMA_FUNCTION}
    */
   properties: (
-    sourceEntity: ISourceEntity,
+    sourceEntity: ISourceEntity<TSourceEntityProperties>,
     context: IPropertiesContext
-  ) => Promise<TProperties> | TProperties;
+  ) => Promise<TReturnProperties> | TReturnProperties;
 }
