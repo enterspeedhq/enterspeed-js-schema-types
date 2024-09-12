@@ -32,7 +32,7 @@ export interface IReferenceFilterBuilder extends IReferenceBuilder {
   sourceGroup(sourceGroupAlias: string): this;
 
   /**
-   * ToDo: HELP!!!
+   * Returns a single view reference object with the first item in the result set.
    * @example Example of usage
    * ```js
    * const newsTeaser = context.reference("newsTeaser").filter("type eq 'newsArticle'").first();
@@ -61,6 +61,15 @@ export interface IReferenceChildrenFilterBuilder extends IReferenceBuilder {
    * ```
    */
   limit(limit: number): this;
+
+   /**
+   * Returns a single view reference object with the first item in the result set.
+   * @example Example of usage
+   * ```js
+   * const newsTeaser = context.reference("newsTeaser").children().first();
+   * ```
+   */
+   first(): IReferenceFinalBuilder;
 }
 
 export interface IReferenceByOriginIdBuilder extends IReferenceBuilder {
