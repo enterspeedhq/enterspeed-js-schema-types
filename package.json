@@ -1,6 +1,6 @@
 {
   "name": "@enterspeed/js-schema-types",
-  "version": "1.3.0",
+  "version": "1.4.1",
   "description": "Strongly typed types for Enterspeed JavaScript schemas.",
   "main": "src/index.ts",
   "watch": {
