@@ -1,8 +1,8 @@
 {
-    "compilerOptions": {
-      "declaration": true,
-      "moduleResolution": "node"
-    },
-    "include": ["src/**/*.d.ts"],
+  "compilerOptions": {
+    "declaration": true,
+    "moduleResolution": "node",
+    "lib": ["es2015"]
+  },
+  "include": ["src/**/*.d.ts"]
 }
-  
