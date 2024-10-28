@@ -18,7 +18,7 @@ export abstract class IndexSchema<TReturnProperties, TSourceEntityProperties> {
   /**
    * The `index` method is where you define the index you want to create.
    */
-  index: Map<string, IndexDescriptor>;
+  index: Record<string, IndexDescriptor>;
 
   /**
    * The `properties` method is where you define the output that goes into the index you can search for from the query API.
