@@ -1,5 +1,6 @@
-import { ILookupBuilder } from '../../lookups';
-import { IPropertiesReferenceBuilder } from './context-methods';
+import { ILookupBuilder } from "../../lookups";
+import { IPropertiesReferenceBuilder } from "./context-methods";
+import { ILookupOption } from "./types";
 
 /**
  * The context object available in schemas
@@ -21,7 +22,7 @@ export interface IPropertiesContext {
    */
   reference(schemaAlias: string): IPropertiesReferenceBuilder;
 
-/**
+  /**
    * Using the lookup function lets you do a dynamic search for source entities you want to return
    * @see {@link https://docs.enterspeed.com/reference/js/properties#lookup} documentation for properties lookup
    * @param filter Your filtering criteria
@@ -30,5 +31,5 @@ export interface IPropertiesContext {
    * const newsTeasers = await context.lookup("type eq 'newsArticle'").toPromise();
    * ```
    */
-  lookup(filter: string): ILookupBuilder;
+  lookup(filter: string, lookupOptions?: ILookupOption): ILookupBuilder;
 }
