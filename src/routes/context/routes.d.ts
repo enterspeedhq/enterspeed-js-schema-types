@@ -1,7 +1,7 @@
-import { ILookupBuilder } from '../../lookups';
-import { Nullable } from '../../types';
-import { IRouteByHandleBuilder } from './context-methods/route-by-handle';
-import { IRouteByUrlBuilder } from './context-methods/route-by-url';
+import { ILookupBuilder, ILookupOption } from "../../lookups";
+import { Nullable } from "../../types";
+import { IRouteByHandleBuilder } from "./context-methods/route-by-handle";
+import { IRouteByUrlBuilder } from "./context-methods/route-by-url";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IRouteBuilder {}
@@ -29,7 +29,7 @@ export interface IRoutesSchemaContext {
    */
   handle(handle: Nullable<string>): IRouteByHandleBuilder;
 
-/**
+  /**
    * Using the lookup function lets you do a dynamic search for source entities you want to return
    * @see {@link https://docs.enterspeed.com/reference/js/routes#lookup} documentation for route lookup
    * @param filter Your filtering criteria
@@ -38,5 +38,5 @@ export interface IRoutesSchemaContext {
    * const newsTeasers = await context.lookup("type eq 'newsArticle'").toPromise();
    * ```
    */
-  lookup(filter: string): ILookupBuilder;
+  lookup(filter: string, options?: ILookupOption): ILookupBuilder;
 }
