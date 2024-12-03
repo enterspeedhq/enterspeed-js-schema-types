@@ -1,6 +1,5 @@
-import { ILookupBuilder } from "../../lookups";
+import { ILookupBuilder, ILookupOption } from "../../lookups";
 import { IPropertiesReferenceBuilder } from "./context-methods";
-import { ILookupOption } from "./types";
 
 /**
  * The context object available in schemas
