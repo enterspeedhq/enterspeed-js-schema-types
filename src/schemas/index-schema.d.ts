@@ -5,9 +5,10 @@ type IndexType = "keyword" | "float" | "integer" | "text" | "boolean";
 
 interface IndexDescriptor {
   type: IndexType;
+  value?: unknown;
 }
 
-export abstract class IndexSchema<TReturnProperties, TSourceEntityProperties> {
+export abstract class IndexSchema<TSourceEntityProperties> {
   /**
    * The `triggers` method is where you define the source group and the types the schema should process.
    * @see {@link https://docs.enterspeed.com/reference/js/triggers} documentation for triggers.
@@ -16,16 +17,11 @@ export abstract class IndexSchema<TReturnProperties, TSourceEntityProperties> {
   triggers: (context: ITriggersSchemaContext) => void;
 
   /**
-   * The `index` method is where you define the index you want to create.
-   */
-  index: Record<string, IndexDescriptor>;
-
-  /**
-   * The `properties` method is where you define the output that goes into the index you can search for from the query API.
-   * @returns The properties method must return an object matching the index definition defined in the schema.
+   * The `index` method is where you define the index you want to create, and map the source entity input to match the index.
+   * @returns The index method must return an object.
    * {@label SCHEMA_FUNCTION}
    */
-  properties: (
+  index: (
     sourceEntity: ISourceEntity<TSourceEntityProperties>
-  ) => Promise<TReturnProperties> | TReturnProperties;
+  ) => Record<string, IndexDescriptor>;
 }
