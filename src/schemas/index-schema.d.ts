@@ -19,10 +19,10 @@ type IndexType =
   | "longRange"
   | "floatRange"
   | "doubleRange"
-  | "dateRange"
-  // Geo fields
-  | "geoPoint"
-  | "geoShape";
+  | "dateRange";
+// Geo fields
+// | "geoPoint"
+// | "geoShape";
 
 interface IndexDescriptor {
   type: IndexType;
