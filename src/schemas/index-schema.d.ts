@@ -1,7 +1,28 @@
 import { ISourceEntity } from "../models";
 import { ITriggersSchemaContext } from "../triggers";
 
-type IndexType = "keyword" | "float" | "integer" | "text" | "boolean";
+type IndexType =
+  // Text fields
+  | "keyword"
+  | "text"
+  // Numeric fields
+  | "integer"
+  | "long"
+  | "float"
+  | "double"
+  // Boolean fields
+  | "boolean"
+  // Date fields
+  | "date"
+  // Range fields
+  | "integerRange"
+  | "longRange"
+  | "floatRange"
+  | "doubleRange"
+  | "dateRange";
+// Geo fields
+// | "geoPoint"
+// | "geoShape";
 
 interface IndexDescriptor {
   type: IndexType;
