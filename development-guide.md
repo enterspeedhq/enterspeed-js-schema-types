@@ -4,7 +4,7 @@
 2. Login to npm by running: `npm login`
 3. Build locally using `npm run publish-locally`
 4. Publish the package by running: `npm run publish`
-   1. You might get an error 403 but the package update should be complated
+   1. You might get an error 403 but the package update should be completed
 
 ## Bundling guide
 
