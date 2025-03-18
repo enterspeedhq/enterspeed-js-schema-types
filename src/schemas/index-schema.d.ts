@@ -38,11 +38,16 @@ export abstract class IndexSchema<TSourceEntityProperties> {
   triggers: (context: ITriggersSchemaContext) => void;
 
   /**
-   * The `index` method is where you define the index you want to create, and map the source entity input to match the index.
-   * @returns The index method must return an object.
+   * The `index` property is where you define the index.
+   * @returns The index must be an object.
+   */
+  index: { fields: Record<string, IndexDescriptor> };
+
+  /** The `properties` is where you map the source entity input to match the index
+   * @returns The properties method must return an object.
    * {@label SCHEMA_FUNCTION}
    */
-  index: (
+  properties: (
     sourceEntity: ISourceEntity<TSourceEntityProperties>
-  ) => Record<string, IndexDescriptor>;
+  ) => Record<string, unknown>;
 }
