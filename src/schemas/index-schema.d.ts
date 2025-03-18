@@ -26,7 +26,6 @@ type IndexType =
 
 interface IndexDescriptor {
   type: IndexType;
-  value?: unknown;
 }
 
 export abstract class IndexSchema<TSourceEntityProperties> {
