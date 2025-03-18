@@ -24,7 +24,7 @@ type IndexType =
 // | "geoPoint"
 // | "geoShape";
 
-interface IndexDescriptor {
+interface FieldDescriptor {
   type: IndexType;
 }
 
@@ -40,7 +40,7 @@ export abstract class IndexSchema<TSourceEntityProperties> {
    * The `index` property is where you define the index.
    * @returns The index must be an object.
    */
-  index: { fields: Record<string, IndexDescriptor> };
+  index: { fields: Record<string, FieldDescriptor> };
 
   /** The `properties` is where you map the source entity input to match the index
    * @returns The properties method must return an object.
