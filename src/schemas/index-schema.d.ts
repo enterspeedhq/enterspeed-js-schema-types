@@ -19,7 +19,16 @@ type IndexType =
   | "longRange"
   | "floatRange"
   | "doubleRange"
-  | "dateRange";
+  | "dateRange"
+  // List fields
+  | "keyword[]"
+  | "text[]"
+  | "integer[]"
+  | "long[]"
+  | "float[]"
+  | "double[]"
+  | "boolean[]"
+  | "date[]";
 // Geo fields
 // | "geoPoint"
 // | "geoShape";
