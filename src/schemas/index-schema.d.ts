@@ -37,6 +37,10 @@ interface IFieldMetadata {
   description?: string;
 }
 
+interface IIndexMetadata {
+  description?: string;
+}
+
 interface FieldDescriptor {
   type: IndexType;
   metadata?: IFieldMetadata;
@@ -54,7 +58,7 @@ export abstract class IndexSchema<TSourceEntityProperties> {
    * The `index` property is where you define the index.
    * @returns The index must be an object.
    */
-  index: { fields: Record<string, FieldDescriptor> };
+  index: { fields: Record<string, FieldDescriptor>; metadata?: IIndexMetadata };
 
   /** The `properties` is where you map the source entity input to match the index
    * @returns The properties method must return an object.
