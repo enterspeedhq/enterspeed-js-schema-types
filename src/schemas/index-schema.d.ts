@@ -33,8 +33,13 @@ type IndexType =
 // | "geoPoint"
 // | "geoShape";
 
+interface IFieldMetadata {
+  description?: string;
+}
+
 interface FieldDescriptor {
   type: IndexType;
+  metadata?: IFieldMetadata;
 }
 
 export abstract class IndexSchema<TSourceEntityProperties> {
