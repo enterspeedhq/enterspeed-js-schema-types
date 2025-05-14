@@ -45,7 +45,6 @@ interface IIndexMetadata {
 
 interface FieldDescriptor {
   type: IndexType;
-  enabled?: boolean;
   metadata?: IFieldMetadata;
 }
 
