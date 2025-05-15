@@ -3,7 +3,7 @@ With JavaScript schemas, you can build your schemas in a standard language most 
 
 This types package goal is to improve developers experience while working with Enterspeed schemas, by providing types to be used by intellisense.
 
-https://docs.enterspeed.com/reference/js/Intro
+https://docs.enterspeed.com/reference/js/intro
 
 ## How to use this package for local schemas development?
 

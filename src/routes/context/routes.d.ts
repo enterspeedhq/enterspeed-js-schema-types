@@ -9,7 +9,7 @@ export interface IRouteBuilder {}
 export interface IRoutesSchemaContext {
   /**
    * A string value that represents the url you want to fetch the view by. A view can only have one url.
-   * @see {@link https://docs.enterspeed.com/reference/js/routes#url} documentation for route url
+   * @see {@link https://docs.enterspeed.com/reference/js/full-schema/routes#url} documentation for route url
    * @param url
    * @example Example of usage
    * ```js
@@ -20,7 +20,7 @@ export interface IRoutesSchemaContext {
 
   /**
    * A handle is a key from which you can fetch the view. A view can have multiple handles.
-   * @see {@link https://docs.enterspeed.com/reference/js/routes#handle} documentation for route handles
+   * @see {@link https://docs.enterspeed.com/reference/js/full-schema/routes#handle} documentation for route handles
    * @param handle
    * @example Example of usage
    * ```js
@@ -31,7 +31,7 @@ export interface IRoutesSchemaContext {
 
   /**
    * Using the lookup function lets you do a dynamic search for source entities you want to return
-   * @see {@link https://docs.enterspeed.com/reference/js/routes#lookup} documentation for route lookup
+   * @see {@link https://docs.enterspeed.com/reference/js/full-schema/routes#lookup} documentation for route lookup
    * @param filter Your filtering criteria
    * @example Example of usage
    * ```js

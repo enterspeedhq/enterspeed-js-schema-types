@@ -51,7 +51,7 @@ interface FieldDescriptor {
 export abstract class IndexSchema<TSourceEntityProperties> {
   /**
    * The `triggers` method is where you define the source group and the types the schema should process.
-   * @see {@link https://docs.enterspeed.com/reference/js/triggers} documentation for triggers.
+   * @see {@link https://docs.enterspeed.com/reference/js/index-schema/triggers} documentation for triggers.
    * {@label SCHEMA_FUNCTION}
    */
   triggers: (context: ITriggersSchemaContext) => void;
