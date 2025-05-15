@@ -28,7 +28,9 @@ type IndexType =
   | "float[]"
   | "double[]"
   | "boolean[]"
-  | "date[]";
+  | "date[]"
+  // Complex fields
+  | "object";
 // Geo fields
 // | "geoPoint"
 // | "geoShape";
