@@ -1,1 +1,1 @@
-export * from './relewise';
+export * from './destinations';
