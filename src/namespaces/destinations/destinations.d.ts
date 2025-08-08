@@ -11,6 +11,15 @@ export namespace Destinations {
         }
 
         export namespace Types {
+
+            class ProductDestinationOptions {
+                customId?: string
+                shopifyEntityType: 'Product'
+                statusForNewProducts: 'Active' | 'Draft' | 'Archived'
+                statusForDeletedProducts?: 'Delete' | 'Draft' | 'Archived'
+                setOnlyHandleForNewProducts: boolean
+            }
+
             interface ProductProperties  {
                 handle?: string
                 title?: string
@@ -18,27 +27,20 @@ export namespace Destinations {
                 description?: string
                 seoTitle?: string
                 seoDescription?: string
-                BodyHtml?: string
+                bodyHtml?: string
                 status?: 'Active' | 'Draft' | 'Archived'
                 options?: string[]
                 vendor?: string
                 type?: string
                 tags?: string[]
                 templateSuffix?: string
+                collections?: string[]
                 medias?: Media[]
-                variants?: Variant[]
                 prices?: Price[]
+                variants?: Variant[]
                 publications?: Publication[]
                 metaFields?: MetaField[]
                 productTranslations: ProductTranslations
-            }
-
-            class ProductDestinationOptions {
-                customId?: string
-                shopifyEntityType: 'product'
-                statusForNewProducts: 'Active' | 'Draft' | 'Archived'
-                statusForDeletedProducts?: 'Delete' | 'Draft' | 'Archived'
-                setOnlyHandleForNewProducts: boolean
             }
 
             // Subtypes
