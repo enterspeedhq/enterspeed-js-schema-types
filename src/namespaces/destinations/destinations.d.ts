@@ -13,67 +13,98 @@ export namespace Destinations {
         export namespace Types {
 
             class ProductDestinationOptions {
-                customId?: string
+                customId: string
                 shopifyEntityType: 'Product'
-                statusForNewProducts: 'Active' | 'Draft' | 'Archived'
-                statusForDeletedProducts?: 'Delete' | 'Draft' | 'Archived'
-                setOnlyHandleForNewProducts: boolean
+                statusForNewProducts?: 'Active' | 'Draft' | 'Archived' | 'Unlisted'
+                setOnlyHandleForNewProducts?: boolean
+                // statusForDeletedProducts?: 'Delete' | 'Draft' | 'Archived' | 'Unlisted'
             }
 
             interface ProductProperties  {
                 handle?: string
                 title?: string
-                number?: string
-                description?: string
-                seoTitle?: string
-                seoDescription?: string
-                bodyHtml?: string
-                status?: 'Active' | 'Draft' | 'Archived'
-                options?: string[]
+                descriptionHtml?: string
+                seo?: Seo
+                status?: 'Active' | 'Draft' | 'Archived' | 'Unlisted'
+                // options?: string[]
                 vendor?: string
-                type?: string
+                productType?: string
                 tags?: string[]
                 templateSuffix?: string
-                collections?: string[]
-                medias?: Media[]
-                prices?: Price[]
+                // collections?: string[]
+                publishToPublications?: PublishToPublication[]
+                files?: File[]
                 variants?: Variant[]
-                publications?: Publication[]
-                metaFields?: MetaField[]
-                productTranslations: ProductTranslations
+                metafields?: Metafield[]
+                translations: Translations
             }
 
             // Subtypes
 
-            interface Media  {
-                Name?: string
-                Provider?: string
-                MimeType?: string
-                Position?: number
-                MediaType?: string
-                Size?: number  
-                MediaUri?: string
-                MediaAltText?: string
+            interface Seo  {
+                title?: string
+                description?: string
+            }
+
+            interface PublishToPublication  {
+                name: string
+            }
+
+            interface File  {
+                alt?: string
+                contentType?: 'EXTERNAL_VIDEO' | 'MODEL_3D' | 'IMAGE' | 'VIDEO' | 'FILE'
+                fileName?: string
+                originalSource?: string
             }
 
             interface Variant  {
                 sku: string
-                position?: number
-                fulfillmentService?: string
-                inventoryPolicy?: string
-                inventoryManagementPolicy?: string
+                // fulfillmentService?: string
+                // inventoryPolicy?: 'DENY' | 'CONTINUE'
+                // inventoryManagementPolicy?: string
                 price?: number
                 compareAtPrice?: number
-                Taxable?: boolean
-                requiresShipping?: boolean
+                prices?: PriceListItem[]
+                inventoryItem?: InventoryItem
+                // inventoryQuantities?: InventoryQuantities
+                // Taxable?: boolean
+                // requiresShipping?: boolean
                 barcode?: string
-                weight?: number
-                weightUnit?: string
-                cost?: number
-                hsCode?: string
-                countryOfOrigin?: string
-                OptionValues?: OptionValue[]
-                metaFields?: MetaField[]
+                // cost?: number
+                // hsCode?: string
+                // countryOfOrigin?: string
+                // OptionValues?: OptionValue[]
+                // metafields?: Metafield[]
+            }
+
+            interface InventoryQuantities  {
+                locationName: string
+                quantity: number
+            }
+
+            interface InventoryItem  {
+                measurement: Measurement
+            }
+
+            interface Measurement  {
+                shippingPackageName: string
+                weight: Weight
+            }
+
+            interface Weight  {
+                unit: 'GRAMS' | 'KILOGRAMS' | 'OUNCES' | 'POUNDS'
+                weight: number
+            }
+
+            interface PriceListItem  {
+                priceListName: string
+                compareAtPrice?: CurrencyPrice
+                price: CurrencyPrice
+            }
+
+            interface CurrencyPrice  {
+                currencyCode: string
+                amount: number
             }
 
             interface OptionValue  {
@@ -81,48 +112,44 @@ export namespace Destinations {
                 value: string
             }
 
-
-            interface Price  {
-                sku: string
-                marketName: string
-                amount: number
-                compareAtAmount?: number
+            interface Weight  {
+                Name: string
+                value: string
             }
 
-            interface MetaField  {
+            interface Metafield  {
                 namespace: string
                 key: string
                 value?: any
                 type: 'boolean' | 'color' | 'date' | 'date_time' | 'dimension' | 'id' | 'json' | 'link' | 'money' | 'multi_line_text_field' | 'number_decimal' | 'number_integer' | 'rating' | 'rich_text_field' | 'single_line_text_field' | 'url' | 'volume' | 'weight' | 'collection_reference' | 'customer_reference' | 'file_reference' | 'metaobject_reference' | 'mixed_reference' | 'page_reference' | 'product_reference' | 'product_taxonomy_value_reference' | 'variant_reference' | 'list.collection_reference' | 'list.color' | 'list.customer_reference' | 'list.date' | 'list.date_time' | 'list.dimension' | 'list.file_reference' | 'list.id' | 'list.link' | 'list.metaobject_reference' | 'list.mixed_reference' | 'list.number_decimal' | 'list.number_integer' | 'list.page_reference' | 'list.product_reference' | 'list.product_taxonomy_value_reference' | 'list.rating' | 'list.single_line_text_field' | 'list.url' | 'list.variant_reference' | 'list.volume' | 'list.weight'
             }
 
-            interface MetaFieldTranaslation  {
+            interface Translations  {
+                languages: string[]
+                title?: { [key: string]: string; }
+                descriptionHtml?: { [key: string]: string; }
+                seo?: { [key: string]: SeoTranaslation; }
+                type?: { [key: string]: string; }
+                // options?: { [key: string]: string[]; }
+                variants?: { [key: string]: VariantTranslation[]; }
+                metafields?: { [key: string]: MetafieldTranaslation; }
+            }
+
+            interface VariantTranslation  {
+                sku: string
+                // options?: { [key: string]: string[]; }
+                // metafields?: { [key: string]: MetafieldTranaslation; }
+            }
+
+            interface MetafieldTranaslation  {
                 namespace: string
                 key: string
                 translations?: { [key: string]: string; }
             }
 
-            interface Publication  {
-                PublicationName?: string
-                PublishedAt?: string
-            }
-
-            interface ProductTranslations  {
-                languages: string[]
-                title?: { [key: string]: string; }
-                description?: { [key: string]: string; }
-                seoTitle?: { [key: string]: string; }
-                seoDescription?: { [key: string]: string; }
-                type?: { [key: string]: string; }
-                options?: { [key: string]: string[]; }
-                variants?: { [key: string]: VariantTranslation[]; }
-                metaFields?: { [key: string]: MetaFieldTranaslation; }
-            }
-
-            interface VariantTranslation  {
-                sku: string
-                options?: { [key: string]: string[]; }
-                metaFields?: { [key: string]: MetaFieldTranaslation; }
+            interface SeoTranaslation  {
+                title?: string
+                description?: string
             }
         }
     }
