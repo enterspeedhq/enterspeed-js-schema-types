@@ -14,8 +14,8 @@ export namespace Destinations {
 
             class ProductDestinationOptions {
                 customId: string
-                shopifyEntityType: 'Product'
-                statusForNewProducts?: 'Active' | 'Draft' | 'Archived' | 'Unlisted'
+                shopifyEntityType: 'PRODUCT'
+                statusForNewProducts?: 'ACTIVE' | 'DRAFT' | 'ARCHIVED' | 'UNLISTED'
                 setOnlyHandleForNewProducts?: boolean
                 // statusForDeletedProducts?: 'Delete' | 'Draft' | 'Archived' | 'Unlisted'
             }
@@ -25,7 +25,7 @@ export namespace Destinations {
                 title?: string
                 descriptionHtml?: string
                 seo?: Seo
-                status?: 'Active' | 'Draft' | 'Archived' | 'Unlisted'
+                status?: 'ACTIVE' | 'DRAFT' | 'ARCHIVED' | 'UNLISTED'
                 // options?: string[]
                 vendor?: string
                 productType?: string
@@ -36,7 +36,7 @@ export namespace Destinations {
                 files?: File[]
                 variants?: Variant[]
                 metafields?: Metafield[]
-                translations: Translations
+                translations?: Translations
             }
 
             // Subtypes
@@ -87,13 +87,13 @@ export namespace Destinations {
             }
 
             interface Measurement  {
-                shippingPackageName: string
+                // shippingPackageName: string
                 weight: Weight
             }
 
             interface Weight  {
                 unit: 'GRAMS' | 'KILOGRAMS' | 'OUNCES' | 'POUNDS'
-                weight: number
+                value: number
             }
 
             interface PriceListItem  {
@@ -112,11 +112,6 @@ export namespace Destinations {
                 value: string
             }
 
-            interface Weight  {
-                Name: string
-                value: string
-            }
-
             interface Metafield  {
                 namespace: string
                 key: string
@@ -125,14 +120,19 @@ export namespace Destinations {
             }
 
             interface Translations  {
+                product?: ProductTranslations
+            }
+
+            interface ProductTranslations  {
                 languages: string[]
                 title?: { [key: string]: string; }
                 descriptionHtml?: { [key: string]: string; }
-                seo?: { [key: string]: SeoTranaslation; }
+                seoTitle?: { [key: string]: string; }
+                seoDescription?: { [key: string]: string; }
                 type?: { [key: string]: string; }
                 // options?: { [key: string]: string[]; }
                 variants?: { [key: string]: VariantTranslation[]; }
-                metafields?: { [key: string]: MetafieldTranaslation; }
+                metafields?: { [key: string]: MetafieldTranslation; }
             }
 
             interface VariantTranslation  {
@@ -141,15 +141,10 @@ export namespace Destinations {
                 // metafields?: { [key: string]: MetafieldTranaslation; }
             }
 
-            interface MetafieldTranaslation  {
+            interface MetafieldTranslation  {
                 namespace: string
                 key: string
                 translations?: { [key: string]: string; }
-            }
-
-            interface SeoTranaslation  {
-                title?: string
-                description?: string
             }
         }
     }
