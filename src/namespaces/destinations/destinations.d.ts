@@ -292,4 +292,17 @@ export namespace Destinations {
             }
         }
     }
+
+    export namespace Speedtrain {
+        export namespace Schemas {
+            export class Schema<TReturnProperties = Record<string, any | undefined>, TSourceEntityProperties = Record<string, any | undefined>> extends BaseFullSchema<TReturnProperties, Types.DestinationOptions, TSourceEntityProperties> {
+            }
+        }
+
+        export namespace Types {
+            class DestinationOptions {
+                indexAlias: string
+            }
+        }
+    }
 }
