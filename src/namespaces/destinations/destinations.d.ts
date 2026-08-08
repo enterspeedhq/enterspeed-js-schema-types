@@ -302,6 +302,27 @@ export namespace Destinations {
         export namespace Types {
             class DestinationOptions {
                 indexAlias: string
+                actions?: Action[]
+            }
+
+            // Subtypes
+
+            interface Action  {
+                taskConfiguration: TaskConfiguration
+                // Controls whether generated content is published automatically or held for review.
+                // null defers to the default approval mode configured in Speedtrain.
+                // 'AUTO_APPROVE' publishes immediately without human review.
+                // 'SMART_APPROVAL' auto-approves when output confidence is high, otherwise routes to manual review.
+                // 'MANUAL' holds all outputs for human review regardless of confidence.
+                lastMilePolicy: 'AUTO_APPROVE' | 'SMART_APPROVAL' | 'MANUAL' | null
+            }
+
+            interface TaskConfiguration  {
+                // Identifies which Speedtrain workflow to run, e.g. 'new-product-description'.
+                alias: string
+                // Scopes the workflow to a specific dimension variant, e.g. { Language: 'Norwegian' }.
+                // Omit if the workflow has no bindings.
+                binding?: { [key: string]: string; }
             }
         }
     }
