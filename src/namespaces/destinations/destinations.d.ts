@@ -309,6 +309,9 @@ export namespace Destinations {
 
             interface Action  {
                 taskConfiguration: TaskConfiguration
+                // Scopes the workflow to a specific dimension variant, e.g. { Language: 'Norwegian' }.
+                // Omit if the workflow has no bindings.
+                binding?: { [key: string]: string; }
                 // Controls whether generated content is published automatically or held for review.
                 // null defers to the default approval mode configured in Speedtrain.
                 // 'AUTO_APPROVE' publishes immediately without human review.
@@ -320,9 +323,6 @@ export namespace Destinations {
             interface TaskConfiguration  {
                 // Identifies which Speedtrain workflow to run, e.g. 'new-product-description'.
                 alias: string
-                // Scopes the workflow to a specific dimension variant, e.g. { Language: 'Norwegian' }.
-                // Omit if the workflow has no bindings.
-                binding?: { [key: string]: string; }
             }
         }
     }
