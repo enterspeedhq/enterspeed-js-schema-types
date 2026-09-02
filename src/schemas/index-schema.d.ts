@@ -1,7 +1,7 @@
 import { ISourceEntity } from "../models";
 import { ITriggersSchemaContext } from "../triggers";
 
-type IndexType =
+type LeafIndexType =
   // Text fields
   | "keyword"
   | "text"
@@ -28,12 +28,17 @@ type IndexType =
   | "float[]"
   | "double[]"
   | "boolean[]"
-  | "date[]"
-  // Complex fields
-  | "object";
+  | "date[]";
 // Geo fields
 // | "geoPoint"
 // | "geoShape";
+
+// Container types are not field mappers in Elasticsearch: they hold other fields and accept no
+// field metadata (`meta`). This is structural, not about searchability — `nested`, when it arrives,
+// is fully indexed and rejects `meta` too, so it belongs in this union rather than the leaf one.
+type ContainerIndexType = "object";
+
+type IndexType = LeafIndexType | ContainerIndexType;
 
 interface IFieldMetadata {
   description?: string;
@@ -43,10 +48,19 @@ interface IIndexMetadata {
   description?: string;
 }
 
-interface FieldDescriptor {
-  type: IndexType;
-  metadata?: IFieldMetadata;
-}
+type FieldDescriptor =
+  | {
+      type: LeafIndexType;
+      metadata?: IFieldMetadata;
+    }
+  | {
+      /**
+       * Container fields take no `metadata` — Elasticsearch only allows field metadata on leaf
+       * field types. Use a JavaScript comment in the schema to document the field instead.
+       */
+      type: ContainerIndexType;
+      metadata?: never;
+    };
 
 export abstract class IndexSchema<TSourceEntityProperties> {
   /**
