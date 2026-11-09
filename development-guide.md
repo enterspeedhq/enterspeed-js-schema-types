@@ -12,10 +12,10 @@
 npm run publish-locally
 ```
 
+This bundles the types into `dist/index.d.ts` and runs `npm pack`, which writes `enterspeed-js-schema-types-<version>.tgz` to the repo root. To try it in another project, install the tarball there:
+
 ```
-local-package-publisher -p
-npm link @enterspeed/js-schema-types
-npm publish --access public
+npm install /path/to/enterspeed-js-schema-types/enterspeed-js-schema-types-<version>.tgz
 ```
 
 ## Watcher
@@ -23,3 +23,5 @@ npm publish --access public
 ```
 npm run watch
 ```
+
+The watcher re-runs `publish-locally` on every change under `src`. Re-run the `npm install` above in the consuming project to pick up a new tarball.
